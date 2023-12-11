@@ -7,11 +7,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(
+            name = "getAllTask",
+            query = "select m from Task as m order by m.id desc"
+    )
+
+})
 @Table(name = "tasks")
-public class task {
+public class Task {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +35,7 @@ public class task {
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
 
+    //以下、getter/setter
     public Integer getId() {
         return id;
     }

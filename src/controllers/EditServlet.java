@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//インデックスページを表示するためにリストを取得するためのサーブレット
-@WebServlet("/index")
-public class IndexServlet extends HttpServlet {
+//編集ページを表示するためにデータを取得するサーブレット
+@WebServlet("/edit")
+public class EditServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public IndexServlet() {
+    public EditServlet() {
         super();
     }
 
