@@ -33,7 +33,7 @@ public class DestroyServlet extends HttpServlet {
             em.getTransaction().commit();
 
             // セッションスコープ上の不要になったデータを削除
-            request.getSession().removeAttribute("message_id");
+            request.getSession().removeAttribute("task_id");
 
             // indexページへリダイレクト
             response.sendRedirect(request.getContextPath() + "/index");

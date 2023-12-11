@@ -25,6 +25,12 @@ public class IndexServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //詳細画面から一覧に戻った際にセッションスコープを消す
+        if(request.getSession().getAttribute("task_id") != null) {
+            request.getSession().removeAttribute("task_id");
+            System.out.println("呼ばれた");
+        }
+
         //タスク一覧を取得し、リクエストのセットする
         EntityManager em = DBUtil.createEntityManager();
         List<Task> tasks = em.createNamedQuery("getAllTasks",Task.class).getResultList();
